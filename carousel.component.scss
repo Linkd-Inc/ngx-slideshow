@@ -1,0 +1,17 @@
+.viewport {
+  display: inline-block;
+
+  overflow: hidden;
+  padding: 5px;
+
+  .slides {
+    transition: all 1s ease;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  /deep/ .slides > li {
+    position: relative;
+    float: left;
+  }
+}

@@ -1,0 +1,5 @@
+<div #viewport id="viewport" class="viewport" (window:resize)="onResize()">
+  <ul #slides id="slides" class="slides no-wrap row" style="left: 0;">
+    <ng-content select="li"></ng-content>
+  </ul>
+</div>
