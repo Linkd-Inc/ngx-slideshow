@@ -1,1 +1,1 @@
-export * from './module/ng-slideshow.module';
+export * from './module/ngx-slideshow.module';

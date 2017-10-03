@@ -110,13 +110,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "ng-slideshow",
+      "ngx-slideshow",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "ng-slideshow",
+      "ngx-slideshow",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

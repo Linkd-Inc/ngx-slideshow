@@ -1,16 +1,16 @@
 {
-  "name": "ng-slideshow",
+  "name": "ngx-slideshow",
   "description": "An Angular 4+ slideshow/carousel component",
   "version": "0.0.1",
-  "filename": "./src/ng-slideshow.js",
-  "homepage": "http://github.com/wireflare/ng-slideshow",
+  "filename": "./src/ngx-slideshow.js",
+  "homepage": "http://github.com/wireflare/ngx-slideshow",
   "author": {
     "name": "Wireflare",
     "url": "http://github.com/wireflare"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/wireflare/ng-slideshow.git"
+    "url": "git://github.com/wireflare/ngx-slideshow.git"
   },
   "license": "MIT",
   "keywords": [
@@ -21,7 +21,7 @@
     "carousel"
   ],
   "bugs": {
-    "url": "http://github.com/wireflare/ng-slideshow/issues"
+    "url": "http://github.com/wireflare/ngx-slideshow/issues"
   },
   "private": true,
   "main": "./dist",
@@ -30,7 +30,7 @@
     "start": "gulp build",
     "test": " gulp test",
     "demo": " gulp build:demo",
-    "check-travis": " travis-status --repo=wireflare/ng-slideshow --branch=master --fail-pending || echo 'Not yet passing'"
+    "check-travis": " travis-status --repo=wireflare/ngx-slideshow --branch=master --fail-pending || echo 'Not yet passing'"
   },
   "dependencies": {
     "@angular/core": "4.0.0",

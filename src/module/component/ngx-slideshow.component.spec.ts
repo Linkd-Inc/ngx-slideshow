@@ -2,22 +2,22 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { NgSlideshowComponent } from './ng-slideshow.component';
+import { NgxSlideshowComponent } from './ngx-slideshow.component';
 
-describe('NgSlideshowComponent', function () {
+describe('NgxSlideshowComponent', function () {
   let de: DebugElement;
-  let comp: NgSlideshowComponent;
-  let fixture: ComponentFixture<NgSlideshowComponent>;
+  let comp: NgxSlideshowComponent;
+  let fixture: ComponentFixture<NgxSlideshowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NgSlideshowComponent]
+      declarations: [NgxSlideshowComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgSlideshowComponent);
+    fixture = TestBed.createComponent(NgxSlideshowComponent);
     comp = fixture.componentInstance;
     // de = fixture.debugElement.query(By.css('p.description'));
   });

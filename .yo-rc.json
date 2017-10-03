@@ -4,7 +4,7 @@
     "authorName": "Wireflare",
     "authorEmail": "marketing@wireflare.com",
     "githubUsername": "wireflare",
-    "projectName": "ng-slideshow",
+    "projectName": "ngx-slideshow",
     "projectVersion": "0.0.1",
     "projectDescription": "An Angular 4+ slideshow/carousel component",
     "projectKeywords": [
@@ -14,7 +14,7 @@
       "slideshow",
       "carousel"
     ],
-    "ngPrefix": "ng-slideshow",
+    "ngPrefix": "ngx-slideshow",
     "ngVersion": "4.0.0",
     "ngModules": [
       "core",

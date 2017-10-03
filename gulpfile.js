@@ -70,7 +70,7 @@ const argv = yargs
   .argv;
 
 const config = {
-  libraryName: 'ng-slideshow',
+  libraryName: 'ngx-slideshow',
   allSrc: 'src/**/*',
   allTs: 'src/**/!(*.spec).ts',
   allSass: 'src/**/*.(scss|sass)',
@@ -318,7 +318,7 @@ gulp.task('rollup-bundle', (cb) => {
     const es5Entry = path.join(es5OutputFolder, `${config.libraryName}.js`);
     const es2015Entry = path.join(es2015OutputFolder, `${config.libraryName}.js`);
     const globals = {
-      // Angular dependencies 
+      // Angular dependencies
       '@angular/core': 'ng.core',
       '@angular/common': 'ng.common',
 

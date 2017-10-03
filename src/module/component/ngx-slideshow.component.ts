@@ -1,11 +1,11 @@
 import {Component, ElementRef, ViewChild, Renderer2, Input, AfterViewInit, OnChanges} from '@angular/core';
 
 @Component({
-  selector: 'ng-slideshow-component',
-  templateUrl: './ng-slideshow.component.html',
-  styleUrls: ['./ng-slideshow.component.scss']
+  selector: 'ngx-slideshow-component',
+  templateUrl: './ngx-slideshow.component.html',
+  styleUrls: ['./ngx-slideshow.component.scss']
 })
-export class NgSlideshowComponent implements AfterViewInit, OnChanges {
+export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   @Input() cards = 1;
   @Input() padding = '14px';
   @Input() cardSize = '100%';

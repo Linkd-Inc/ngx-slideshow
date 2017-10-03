@@ -1,10 +1,10 @@
-# ng-slideshow - An Angular 4+ slideshow/carousel component
+# ngx-slideshow - An Angular 4+ slideshow/carousel component
 
-[![npm version](https://badge.fury.io/js/ng-slideshow.svg)](https://badge.fury.io/js/ng-slideshow)
-[![Build Status](https://travis-ci.org/wireflare/ng-slideshow.svg?branch=master)](https://travis-ci.org/wireflare/ng-slideshow)
-[![Coverage Status](https://coveralls.io/repos/github/wireflare/ng-slideshow/badge.svg?branch=master)](https://coveralls.io/github/wireflare/ng-slideshow?branch=master)
-[![dependency Status](https://david-dm.org/wireflare/ng-slideshow/status.svg)](https://david-dm.org/wireflare/ng-slideshow)
-[![devDependency Status](https://david-dm.org/wireflare/ng-slideshow/dev-status.svg?branch=master)](https://david-dm.org/wireflare/ng-slideshow#info=devDependencies)
+[![npm version](https://badge.fury.io/js/ngx-slideshow.svg)](https://badge.fury.io/js/ngx-slideshow)
+[![Build Status](https://travis-ci.org/wireflare/ngx-slideshow.svg?branch=master)](https://travis-ci.org/wireflare/ngx-slideshow)
+[![Coverage Status](https://coveralls.io/repos/github/wireflare/ngx-slideshow/badge.svg?branch=master)](https://coveralls.io/github/wireflare/ngx-slideshow?branch=master)
+[![dependency Status](https://david-dm.org/wireflare/ngx-slideshow/status.svg)](https://david-dm.org/wireflare/ngx-slideshow)
+[![devDependency Status](https://david-dm.org/wireflare/ngx-slideshow/dev-status.svg?branch=master)](https://david-dm.org/wireflare/ngx-slideshow#info=devDependencies)
 
 ## Dependencies
 * [Angular](https://angular.io) (*requires* Angular 4 or higher, tested with 4.0.0)
@@ -12,30 +12,30 @@
 ## Installation
 Install above dependencies via *npm*. 
 
-Now install `ng-slideshow` via:
+Now install `ngx-slideshow` via:
 ```shell
-npm install --save ng-slideshow
+npm install --save ngx-slideshow
 ```
 
 ---
 ##### SystemJS
 >**Note**:If you are using `SystemJS`, you should adjust your configuration to point to the UMD bundle.
-In your systemjs config file, `map` needs to tell the System loader where to look for `ng-slideshow`:
+In your systemjs config file, `map` needs to tell the System loader where to look for `ngx-slideshow`:
 ```js
 map: {
-  'ng-slideshow': 'node_modules/ng-slideshow/bundles/ng-slideshow.umd.js',
+  'ngx-slideshow': 'node_modules/ngx-slideshow/bundles/ngx-slideshow.umd.js',
 }
 ```
 ---
 
 Once installed you need to import the main module:
 ```js
-import { NgSlideshowModule } from 'ng-slideshow';
+import { NgSlideshowModule } from 'ngx-slideshow';
 ```
 The only remaining part is to list the imported module in your application module. The exact method will be slightly
 different for the root (top-level) module for which you should end up with the code similar to (notice ` NgSlideshowModule .forRoot()`):
 ```js
-import { NgSlideshowModule } from 'ng-slideshow';
+import { NgSlideshowModule } from 'ngx-slideshow';
 
 @NgModule({
   declarations: [AppComponent, ...],
@@ -49,7 +49,7 @@ export class AppModule {
 Other modules in your application can simply import ` NgSlideshowModule `:
 
 ```js
-import { NgSlideshowModule } from 'ng-slideshow';
+import { NgSlideshowModule } from 'ngx-slideshow';
 
 @NgModule({
   declarations: [OtherComponent, ...],
@@ -75,14 +75,14 @@ export class OtherModule {
 
 ```html
 <p (click)="carousel.left()">Left</p>
-<ng-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'">
+<ngx-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'">
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
-</ng-slideshow>
+</ngx-slideshow>
 <p (click)="carousel.right()">Right</p>
 ```
 

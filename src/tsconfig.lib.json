@@ -14,8 +14,8 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "genDir": "../tmp/lib-gen-dir/",
-    "flatModuleOutFile": "ng-slideshow.js",
-    "flatModuleId": "ng-slideshow",
+    "flatModuleOutFile": "ngx-slideshow.js",
+    "flatModuleId": "ngx-slideshow",
     "annotateForClosureCompiler": true
   }
 }
