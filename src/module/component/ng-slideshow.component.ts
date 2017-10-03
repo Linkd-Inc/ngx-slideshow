@@ -1,13 +1,11 @@
-import { Component, ElementRef, ViewChild, Renderer2, Input, AfterViewInit, OnChanges } from '@angular/core';
-
-require('./carousel.component.scss');
+import {Component, ElementRef, ViewChild, Renderer2, Input, AfterViewInit, OnChanges} from '@angular/core';
 
 @Component({
-  selector: 'carousel',
-  templateUrl: 'carousel.component.html',
+  selector: 'ng-slideshow-component',
+  templateUrl: './ng-slideshow.component.html',
+  styleUrls: ['./ng-slideshow.component.scss']
 })
-
-export class CarouselComponent implements AfterViewInit, OnChanges {
+export class NgSlideshowComponent implements AfterViewInit, OnChanges {
   @Input() cards = 1;
   @Input() padding = '14px';
   @Input() cardSize = '100%';
@@ -27,9 +25,10 @@ export class CarouselComponent implements AfterViewInit, OnChanges {
   @ViewChild('slides') slides: ElementRef;
 
   // To use with HammerJS
-  SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
+  SWIPE_ACTION = {LEFT: 'swipeleft', RIGHT: 'swiperight'};
 
-  constructor(public renderer: Renderer2) {}
+  constructor(public renderer: Renderer2) {
+  }
 
   ngAfterViewInit() {
     this.onResize(true);
@@ -56,7 +55,7 @@ export class CarouselComponent implements AfterViewInit, OnChanges {
   }
 
   setLeft() {
-    let newSize = `calc(0px - calc(calc(${this.trueCardSize}px + ${this.truePaddingSize}px) * ${this.index}))`;
+    const newSize = `calc(0px - calc(calc(${this.trueCardSize}px + ${this.truePaddingSize}px) * ${this.index}))`;
     this.renderer.setStyle(this.slides.nativeElement, 'left', newSize);
   }
 
@@ -72,8 +71,8 @@ export class CarouselComponent implements AfterViewInit, OnChanges {
 
   onResize(overwrite: boolean = false) {
     if (this.cardSize.includes('%') || overwrite) {
-      let cardObjs = this.slides.nativeElement.getElementsByTagName('li');
-      let numCards = cardObjs.length;
+      const cardObjs = this.slides.nativeElement.getElementsByTagName('li');
+      const numCards = cardObjs.length;
       this.max = (numCards - this.cards) + 1;
 
       // Gets card size based on viewport
@@ -83,7 +82,7 @@ export class CarouselComponent implements AfterViewInit, OnChanges {
       this.renderer.setStyle(this.viewport.nativeElement, 'width', this.padding);
       this.truePaddingSize = this.viewport.nativeElement.offsetWidth;
 
-      let fullCardSize = `calc(${this.trueCardSize}px + ${this.truePaddingSize}px)`;
+      const fullCardSize = `calc(${this.trueCardSize}px + ${this.truePaddingSize}px)`;
 
       // This is how wide the viewport will be
       this.renderer.setStyle(this.viewport.nativeElement, 'width', `calc(${fullCardSize} * ${this.cards})`);
