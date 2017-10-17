@@ -33,7 +33,7 @@ Once installed you need to import the main module:
 import { NgxSlideshowModule } from 'ngx-slideshow';
 ```
 The only remaining part is to list the imported module in your application module. The exact method will be slightly
-different for the root (top-level) module for which you should end up with the code similar to (notice ` NgSlideshowModule .forRoot()`):
+different for the root (top-level) module for which you should end up with the code similar to (notice ` NgxSlideshowModule .forRoot()`):
 ```js
 import { NgxSlideshowModule } from 'ngx-slideshow';
 
@@ -46,7 +46,7 @@ export class AppModule {
 }
 ```
 
-Other modules in your application can simply import ` NgSlideshowModule `:
+Other modules in your application can simply import ` NgxSlideshowModule `:
 
 ```js
 import { NgxSlideshowModule } from 'ngx-slideshow';
@@ -75,14 +75,14 @@ export class OtherModule {
 
 ```html
 <p (click)="carousel.left()">Left</p>
-<ngx-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'">
+<ngx-slideshow-component #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'">
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
-</ngx-slideshow>
+</ngx-slideshow-component>
 <p (click)="carousel.right()">Right</p>
 ```
 
