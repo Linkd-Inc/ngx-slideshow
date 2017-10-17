@@ -30,16 +30,16 @@ map: {
 
 Once installed you need to import the main module:
 ```js
-import { NgSlideshowModule } from 'ngx-slideshow';
+import { NgxSlideshowModule } from 'ngx-slideshow';
 ```
 The only remaining part is to list the imported module in your application module. The exact method will be slightly
 different for the root (top-level) module for which you should end up with the code similar to (notice ` NgSlideshowModule .forRoot()`):
 ```js
-import { NgSlideshowModule } from 'ngx-slideshow';
+import { NgxSlideshowModule } from 'ngx-slideshow';
 
 @NgModule({
   declarations: [AppComponent, ...],
-  imports: [NgSlideshowModule.forRoot(), ...],  
+  imports: [NgxSlideshowModule.forRoot(), ...],  
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -49,11 +49,11 @@ export class AppModule {
 Other modules in your application can simply import ` NgSlideshowModule `:
 
 ```js
-import { NgSlideshowModule } from 'ngx-slideshow';
+import { NgxSlideshowModule } from 'ngx-slideshow';
 
 @NgModule({
   declarations: [OtherComponent, ...],
-  imports: [NgSlideshowModule, ...], 
+  imports: [NgxSlideshowModule, ...], 
 })
 export class OtherModule {
 }
