@@ -6,12 +6,12 @@ import {Component, ElementRef, ViewChild, Renderer2, Input, AfterViewInit, OnCha
   styleUrls: ['./ngx-slideshow.component.scss']
 })
 export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
-  @Input() cards: number = 1;
-  @Input() padding: string = '14px';
-  @Input() cardSize: string = '100%';
+  @Input() cards = 1;
+  @Input() padding = '14px';
+  @Input() cardSize = '100%';
 
   // Set initial index
-  index: number = 0;
+  index = 0;
   min: number = -1;
 
   // These will be generated with ngAfterViewInit, as they rely on the number of cards loaded into the carousel

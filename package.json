@@ -1,7 +1,7 @@
 {
   "name": "ngx-slideshow",
   "description": "An Angular 4+ slideshow/carousel component",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "filename": "./src/ngx-slideshow.js",
   "homepage": "http://github.com/wireflare/ngx-slideshow",
   "author": {
