@@ -75,14 +75,14 @@ export class OtherModule {
 
 ```html
 <p (click)="carousel.left()">Left</p>
-<ngx-slideshow-component #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'">
+<ngx-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'">
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
-</ngx-slideshow-component>
+</ngx-slideshow>
 <p (click)="carousel.right()">Right</p>
 ```
 

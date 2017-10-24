@@ -1,7 +1,7 @@
 import {Component, ElementRef, ViewChild, Renderer2, Input, AfterViewInit, OnChanges} from '@angular/core';
 
 @Component({
-  selector: 'ngx-slideshow-component',
+  selector: 'ngx-slideshow',
   templateUrl: './ngx-slideshow.component.html',
   styleUrls: ['./ngx-slideshow.component.scss']
 })
@@ -52,6 +52,15 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
       this.index = this.max - 1;
     }
     this.setLeft();
+  }
+
+  goTo(i: number) {
+    if (i > this.max || i < this.min) {
+      throw new Error('goTo number on slideshow is out of bounds');
+    } else {
+      this.index = i;
+      this.setLeft();
+    }
   }
 
   setLeft() {
