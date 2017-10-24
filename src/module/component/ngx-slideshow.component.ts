@@ -9,6 +9,7 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   @Input() cards = 1;
   @Input() padding = '14px';
   @Input() cardSize = '100%';
+  @Input() resizeViewport = true;
 
   // Set initial index
   index = 0;
@@ -91,32 +92,43 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   }
 
   onResize(overwrite: boolean = false): void {
-    if (this.cardSize.includes('%') || overwrite) {
-      const cardObjs = this.slides.nativeElement.getElementsByTagName('li');
-      const numCards = cardObjs.length;
-      this.max = (numCards - this.cards) + 1;
+      const cardObjs = this.slides.nativeElement.getElementsByTagName('li'); // Get list of objects
+      const numCards = cardObjs.length; // Find out how many cards there are
+      this.max = (numCards - this.cards) + 1; // Calculate max: # cards you see on screen - full # of cards
 
-      // Gets card size based on viewport
+    // Gets card size based on viewport (to calculate % based sizes)
+    if (this.cardSize.includes('%') && this.resizeViewport) {
       this.renderer.setStyle(this.viewport.nativeElement, 'width', this.cardSize);
-      this.trueCardSize = this.viewport.nativeElement.offsetWidth;
-
-      this.renderer.setStyle(this.viewport.nativeElement, 'width', this.padding);
-      this.truePaddingSize = this.viewport.nativeElement.offsetWidth;
-
-      const fullCardSize = `calc(${this.trueCardSize}px + ${this.truePaddingSize}px)`;
-
-      // This is how wide the viewport will be
-      this.renderer.setStyle(this.viewport.nativeElement, 'width', `calc(${fullCardSize} * ${this.cards})`);
-
-      // This sets slides to be exactly the width needed for the cards on screen
-      this.renderer.setStyle(this.slides.nativeElement, 'width', `calc(${fullCardSize} * ${numCards})`);
-
-      // Set size of cards. Wish this could be class based, but alas not
-      for (let i = 0; i < numCards; i++) {
-        this.renderer.setStyle(cardObjs[i], 'width', `${this.trueCardSize}px`);
-        this.renderer.setStyle(cardObjs[i], 'margin', `0 calc(${this.truePaddingSize}px / 2)`);
-      }
+      this.trueCardSize = `${this.viewport.nativeElement.offsetWidth}px`;
+    } else {
+      this.trueCardSize = this.cardSize;
     }
+
+    // Gets card size based on viewport (to calculate % based sizes)
+    if (this.padding.includes('%') && this.resizeViewport) {
+      this.renderer.setStyle(this.viewport.nativeElement, 'width', this.padding);
+      this.truePaddingSize = `${this.viewport.nativeElement.offsetWidth}px`;
+    } else {
+      this.truePaddingSize = this.padding;
+    }
+
+    // Set size of cards + padding for calculating slides div and viewport div
+    const fullCardSize = `calc(${this.trueCardSize} + ${this.truePaddingSize})`;
+
+    // This is how wide the viewport will be
+    if (this.resizeViewport) {
+      this.renderer.setStyle(this.viewport.nativeElement, 'width', `calc(${fullCardSize} * ${this.cards})`);
+    }
+
+    // This sets slides to be exactly the width needed for the cards on screen
+    this.renderer.setStyle(this.slides.nativeElement, 'width', `calc(${fullCardSize} * ${numCards})`);
+
+    // Set size of cards. Wish this could be class based, but alas not
+    for (let i = 0; i < numCards; i++) {
+      this.renderer.setStyle(cardObjs[i], 'width', `${this.trueCardSize}px`);
+      this.renderer.setStyle(cardObjs[i], 'margin', `0 calc(${this.truePaddingSize}px / 2)`);
+    }
+
     this.setLeft();
   }
 }

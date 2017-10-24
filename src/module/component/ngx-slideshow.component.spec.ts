@@ -99,4 +99,6 @@ describe('NgxSlideshowComponent', function () {
     comp.max = 5;
     expect(() => comp.goTo(1)).toThrow();
   });
+
+  // TODO: Add tests for resizeViewport and all unit types
 });
