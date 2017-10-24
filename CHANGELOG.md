@@ -1,3 +1,13 @@
+<a name="0.0.6"></a>
+## [0.0.6](https://github.com/wireflare/ngx-slideshow/compare/v0.0.5...v0.0.6) (2017-10-24)
+
+
+### Features
+
+* **release:** allow user to now have manually resizable viewport ([a7d79bc](https://github.com/wireflare/ngx-slideshow/commit/a7d79bc)), closes [#7](https://github.com/wireflare/ngx-slideshow/issues/7)
+
+
+
 <a name="0.0.5"></a>
 ## [0.0.5](https://github.com/wireflare/ngx-slideshow/compare/v0.0.4...v0.0.5) (2017-10-24)
 
