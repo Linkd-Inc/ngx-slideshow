@@ -1,8 +1,8 @@
 # ngx-slideshow - An Angular 4+ slideshow/carousel component
 
 [![npm version](https://badge.fury.io/js/ngx-slideshow.svg)](https://badge.fury.io/js/ngx-slideshow)
-[![Build Status](https://travis-ci.org/wireflare/ngx-slideshow.svg?branch=master)](https://travis-ci.org/wireflare/ngx-slideshow)
-[![Coverage Status](https://coveralls.io/repos/github/wireflare/ngx-slideshow/badge.svg?branch=master)](https://coveralls.io/github/wireflare/ngx-slideshow?branch=master)
+[![Build Status](https://travis-ci.org/WireFlare/ngx-slideshow.svg?branch=master)](https://travis-ci.org/WireFlare/ngx-slideshow)
+[![Coverage Status](https://coveralls.io/repos/github/WireFlare/ngx-slideshow/badge.svg?branch=master)](https://coveralls.io/github/WireFlare/ngx-slideshow?branch=master)
 [![dependency Status](https://david-dm.org/wireflare/ngx-slideshow/status.svg)](https://david-dm.org/wireflare/ngx-slideshow)
 [![devDependency Status](https://david-dm.org/wireflare/ngx-slideshow/dev-status.svg?branch=master)](https://david-dm.org/wireflare/ngx-slideshow#info=devDependencies)
 
