@@ -67,14 +67,22 @@ export class OtherModule {
 
 `cardSize`: The size of each cards in width. This should be a string of CSS valid units, including percentage
 
-`left()`: This method moves the list of cards to the left
+`left()`: This method moves the list of cards to the left 1 time
 
-`right()`: This method moves the list of cards to the right
+`right()`: This method moves the list of cards to the right 1 time
+
+`leftBy(i)`: This method moves the list of cards to the left by the number input
+
+`rightBy(i)`: This method moves the list of cards to the right by the number input
+
+`goTo(i)`: This method moves the list of cards to the index given
 
 ### Example:
 
 ```html
+<p (click)="carousel.leftBy(2)">Left by 2</p>
 <p (click)="carousel.left()">Left</p>
+<p (click)="carousel.goTo(0)">Go to the Start</p>
 <ngx-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'">
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
@@ -83,7 +91,9 @@ export class OtherModule {
   <li><img src="http://via.placeholder.com/350x150"></li>
   <li><img src="http://via.placeholder.com/350x150"></li>
 </ngx-slideshow>
+<p (click)="carousel.goTo(5)">Go to the End</p>
 <p (click)="carousel.right()">Right</p>
+<p (click)="carousel.rightBy(2)">Right by 2</p>
 ```
 
 ## License

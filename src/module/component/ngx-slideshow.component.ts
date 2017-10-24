@@ -6,12 +6,12 @@ import {Component, ElementRef, ViewChild, Renderer2, Input, AfterViewInit, OnCha
   styleUrls: ['./ngx-slideshow.component.scss']
 })
 export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
-  @Input() cards = 1;
-  @Input() padding = '14px';
-  @Input() cardSize = '100%';
+  @Input() cards: number = 1;
+  @Input() padding: string = '14px';
+  @Input() cardSize: string = '100%';
 
   // Set initial index
-  index = 0;
+  index: number = 0;
   min: number = -1;
 
   // These will be generated with ngAfterViewInit, as they rely on the number of cards loaded into the carousel
@@ -30,31 +30,23 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   constructor(public renderer: Renderer2) {
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.onResize(true);
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.onResize(true);
   }
 
-  right() {
-    this.index++;
-    if (this.index === this.max) {
-      this.index = 0;
-    }
-    this.setLeft();
+  right(): void {
+    this.rightBy(1);
   }
 
-  left() {
-    this.index--;
-    if (this.index === this.min) {
-      this.index = this.max - 1;
-    }
-    this.setLeft();
+  left(): void {
+    this.leftBy(1);
   }
 
-  goTo(i: number) {
+  goTo(i: number): void {
     if (i > this.max || i < this.min) {
       throw new Error('goTo number on slideshow is out of bounds');
     } else {
@@ -63,13 +55,33 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  setLeft() {
+  leftBy(i: number): void {
+    this.index = this.calc(this.index - i);
+    this.setLeft();
+  }
+
+  rightBy(i: number): void {
+    this.index = this.calc(this.index + i);
+    this.setLeft();
+  }
+
+  calc(newIndex: number): number {
+    if (this.max <= newIndex) {
+      return this.calc(newIndex - this.max);
+    } else if (this.min >= newIndex) {
+      return this.calc(this.max + newIndex);
+    } else {
+      return newIndex
+    }
+  }
+
+  setLeft(): void {
     const newSize = `calc(0px - calc(calc(${this.trueCardSize}px + ${this.truePaddingSize}px) * ${this.index}))`;
     this.renderer.setStyle(this.slides.nativeElement, 'left', newSize);
   }
 
   // HammerJS Example. Not sure if I like the syntax; May change
-  swipe(action = this.SWIPE_ACTION.RIGHT) {
+  swipe(action = this.SWIPE_ACTION.RIGHT): void {
     if (action === this.SWIPE_ACTION.RIGHT) {
       this.left();
     }
@@ -78,7 +90,7 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  onResize(overwrite: boolean = false) {
+  onResize(overwrite: boolean = false): void {
     if (this.cardSize.includes('%') || overwrite) {
       const cardObjs = this.slides.nativeElement.getElementsByTagName('li');
       const numCards = cardObjs.length;

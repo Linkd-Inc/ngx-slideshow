@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { NgxSlideshowComponent } from './ngx-slideshow.component';
@@ -19,14 +18,7 @@ describe('NgxSlideshowComponent', function () {
   beforeEach(() => {
     fixture = TestBed.createComponent(NgxSlideshowComponent);
     comp = fixture.componentInstance;
-    // de = fixture.debugElement.query(By.css('p.description'));
   });
-
-  // it('should have expected <p> text', () => {
-  //   fixture.detectChanges();
-  //   const p = de.nativeElement;
-  //   expect(p.innerText).toEqual('An Agular 2+ slideshow component ');
-  // });
 
   it('should create', () => {
     expect(comp).toBeDefined();
@@ -53,11 +45,39 @@ describe('NgxSlideshowComponent', function () {
     expect(comp.index).toBe(0);
   });
 
-  it('should move to 0 if out of bounds left', () => {
+  it('should move to max - 1 if out of bounds left', () => {
     comp.index = 0;
     comp.max = 5;
     comp.left();
     expect(comp.index).toBe(4);
+  });
+
+  it('should move to the correct index leftBy', () => {
+    comp.index = 4;
+    comp.max = 5;
+    comp.leftBy(3);
+    expect(comp.index).toBe(1);
+  });
+
+  it('should move to the correct index rightBy', () => {
+    comp.index = 0;
+    comp.max = 5;
+    comp.rightBy(3);
+    expect(comp.index).toBe(3);
+  });
+
+  it('should move to the correct index if out of bounds leftBy', () => {
+    comp.index = 0;
+    comp.max = 5;
+    comp.leftBy(3);
+    expect(comp.index).toBe(2);
+  });
+
+  it('should move to the correct index if out of bounds rightBy', () => {
+    comp.index = 4;
+    comp.max = 5;
+    comp.rightBy(3);
+    expect(comp.index).toBe(2);
   });
 
   it('should move to the correct index if using goTo', () => {
