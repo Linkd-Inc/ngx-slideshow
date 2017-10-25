@@ -7,12 +7,12 @@ IF YOU DON'T FILL OUT THE FOLLOWING INFORMATION YOUR ISSUE MIGHT BE CLOSED WITHO
 - [ ] feature request
 ```
 
-### OS and Version?
+### Browser and Version?
 <!--
-> Windows 7, 8 or 10. Linux (which distribution).macOS(Yosemite ? El Capitan? Sierra ?)
+> Chrome, Firefox, Opera, Edge, etc. Please include the version number
 -->
 
-### Versions
+### Framework Versions
 <!--
 Output from: `ng --version`, in case you are using Angular CLI.
 Otherwise, output from: `node --version` , `npm --version` and Angular version.

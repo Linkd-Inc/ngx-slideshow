@@ -17,9 +17,9 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
 
   // These will be generated with ngAfterViewInit, as they rely on the number of cards loaded into the carousel
   max: number;
-  viewSize: string;
-  trueCardSize: string;
-  truePaddingSize: string;
+  private viewSize: number;
+  private trueCardSize: string;
+  private truePaddingSize: string;
 
   // Get elements to use later
   @ViewChild('viewport') viewport: ElementRef;
@@ -32,11 +32,11 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit(): void {
-    this.onResize(true);
+    this.onResize();
   }
 
   ngOnChanges(): void {
-    this.onResize(true);
+    this.onResize();
   }
 
   right(): void {
@@ -66,7 +66,7 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     this.setLeft();
   }
 
-  calc(newIndex: number): number {
+  private calc(newIndex: number): number {
     if (this.max <= newIndex) {
       return this.calc(newIndex - this.max);
     } else if (this.min >= newIndex) {
@@ -76,8 +76,8 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  setLeft(): void {
-    const newSize = `calc(0px - calc(calc(${this.trueCardSize}px + ${this.truePaddingSize}px) * ${this.index}))`;
+  private setLeft(): void {
+    const newSize = `calc(0px - calc(calc(${this.trueCardSize} + ${this.truePaddingSize}) * ${this.index}))`;
     this.renderer.setStyle(this.slides.nativeElement, 'left', newSize);
   }
 
@@ -91,15 +91,28 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  onResize(overwrite: boolean = false): void {
-      const cardObjs = this.slides.nativeElement.getElementsByTagName('li'); // Get list of objects
-      const numCards = cardObjs.length; // Find out how many cards there are
-      this.max = (numCards - this.cards) + 1; // Calculate max: # cards you see on screen - full # of cards
+  private endsWith(str: string, searchStr: string) {
+    return str.substr(str.length - searchStr.length, searchStr.length) === searchStr;
+  };
+
+  private onResize(): void {
+    const cardObjs = this.slides.nativeElement.getElementsByTagName('li'); // Get list of objects
+    const numCards = cardObjs.length; // Find out how many cards there are
+    this.max = (numCards - this.cards) + 1; // Calculate max: # cards you see on screen - full # of cards
+
+    if (!this.resizeViewport) {
+      this.viewSize = this.viewport.nativeElement.offsetWidth;
+    }
 
     // Gets card size based on viewport (to calculate % based sizes)
     if (this.cardSize.includes('%') && this.resizeViewport) {
       this.renderer.setStyle(this.viewport.nativeElement, 'width', this.cardSize);
       this.trueCardSize = `${this.viewport.nativeElement.offsetWidth}px`;
+    } else if (this.endsWith(this.cardSize, '%') && !this.resizeViewport) {
+      // TODO: Support entries such as calc(20% - 5px) using regex instead of cruddy endsWith
+      // TODO: Add tests for all unit types such as this
+      const cardPercentage = (Number(this.cardSize.slice(0, -1)) / 100); // Turn into decimal to do math
+      this.trueCardSize = `${this.viewSize * cardPercentage}px`
     } else {
       this.trueCardSize = this.cardSize;
     }
@@ -108,6 +121,9 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     if (this.padding.includes('%') && this.resizeViewport) {
       this.renderer.setStyle(this.viewport.nativeElement, 'width', this.padding);
       this.truePaddingSize = `${this.viewport.nativeElement.offsetWidth}px`;
+    } else if (this.endsWith(this.padding, '%') && !this.resizeViewport) {
+      const cardPercentage = (Number(this.cardSize.slice(0, -1)) / 100); // Turn into decimal to do math
+      this.truePaddingSize = `${this.viewSize * cardPercentage}px`
     } else {
       this.truePaddingSize = this.padding;
     }
@@ -125,8 +141,8 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
 
     // Set size of cards. Wish this could be class based, but alas not
     for (let i = 0; i < numCards; i++) {
-      this.renderer.setStyle(cardObjs[i], 'width', `${this.trueCardSize}px`);
-      this.renderer.setStyle(cardObjs[i], 'margin', `0 calc(${this.truePaddingSize}px / 2)`);
+      this.renderer.setStyle(cardObjs[i], 'width', `${this.trueCardSize}`);
+      this.renderer.setStyle(cardObjs[i], 'margin', `0 calc(${this.truePaddingSize} / 2)`);
     }
 
     this.setLeft();
