@@ -1,3 +1,13 @@
+<a name="0.0.7"></a>
+## [0.0.7](https://github.com/wireflare/ngx-slideshow/compare/v0.0.6...v0.0.7) (2017-10-25)
+
+
+### Bug Fixes
+
+* **units:** enable percentage based units to be passed in ([15fb53f](https://github.com/wireflare/ngx-slideshow/commit/15fb53f))
+
+
+
 <a name="0.0.6"></a>
 ## [0.0.6](https://github.com/wireflare/ngx-slideshow/compare/v0.0.5...v0.0.6) (2017-10-24)
 
