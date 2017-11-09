@@ -1,3 +1,13 @@
+<a name="0.0.8"></a>
+## [0.0.8](https://github.com/wireflare/ngx-slideshow/compare/v0.0.7...v0.0.8) (2017-11-09)
+
+
+### Bug Fixes
+
+* **sizing:** fix sizing of cards ([8dd51d4](https://github.com/wireflare/ngx-slideshow/commit/8dd51d4))
+
+
+
 <a name="0.0.7"></a>
 ## [0.0.7](https://github.com/wireflare/ngx-slideshow/compare/v0.0.6...v0.0.7) (2017-10-25)
 
