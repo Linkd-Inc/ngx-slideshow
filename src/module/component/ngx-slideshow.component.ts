@@ -136,9 +136,6 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
       this.renderer.setStyle(this.viewport.nativeElement, 'width', `calc(${fullCardSize} * ${this.cards})`);
     }
 
-    // This sets slides to be exactly the width needed for the cards on screen
-    this.renderer.setStyle(this.slides.nativeElement, 'width', `calc(${fullCardSize} * ${numCards})`);
-
     // Set size of cards. Wish this could be class based, but alas not
     for (let i = 0; i < numCards; i++) {
       this.renderer.setStyle(cardObjs[i], 'width', `${this.trueCardSize}`);

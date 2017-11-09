@@ -12,6 +12,17 @@
       white-space: nowrap;
       padding: 0;
       margin: 0;
+      width: fit-content;
+
+      /* row */
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 1 auto;
+      /* flex-wrap: wrap; */
+      flex-direction: row;
+
+      /* no-wrap */
+      flex-wrap: nowrap;
     }
 
     ::ng-deep .slides > li {
