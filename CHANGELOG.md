@@ -1,3 +1,13 @@
+<a name="0.0.9"></a>
+## [0.0.9](https://github.com/wireflare/ngx-slideshow/compare/v0.0.8...v0.0.9) (2017-11-13)
+
+
+### Features
+
+* **tabbing:** add disallow tab input for cards not in view ([7f34e7c](https://github.com/wireflare/ngx-slideshow/commit/7f34e7c))
+
+
+
 <a name="0.0.8"></a>
 ## [0.0.8](https://github.com/wireflare/ngx-slideshow/compare/v0.0.7...v0.0.8) (2017-11-09)
 
