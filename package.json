@@ -33,8 +33,8 @@
     "check-travis": " travis-status --repo=wireflare/ngx-slideshow --branch=master --fail-pending || echo 'Not yet passing'"
   },
   "dependencies": {
-    "@angular/core": "4.0.0",
-    "@angular/common": "4.0.0"
+    "@angular/core": "4.0.0 - 5",
+    "@angular/common": "4.0.0 - 5"
    },
   "devDependencies": {
     "@angular/compiler" : "4.0.0",

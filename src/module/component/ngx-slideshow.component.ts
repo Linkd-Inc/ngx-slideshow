@@ -9,6 +9,7 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   @Input() cards = 1;
   @Input() padding = '14px';
   @Input() cardSize = '100%';
+  @Input() disableTabbing = false; // If true, you cannot tab to other slides
   @Input() resizeViewport = true;
 
   // Set initial index
@@ -79,6 +80,10 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   private setLeft(): void {
     const newSize = `calc(0px - calc(calc(${this.trueCardSize} + ${this.truePaddingSize}) * ${this.index}))`;
     this.renderer.setStyle(this.slides.nativeElement, 'left', newSize);
+    if (this.disableTabbing) {
+      // This will disallow tabbing to other slides
+      this.toggleCardListInput();
+    }
   }
 
   // HammerJS Example. Not sure if I like the syntax; May change
@@ -88,6 +93,24 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     }
     if (action === this.SWIPE_ACTION.LEFT) {
       this.right();
+    }
+  }
+
+  private toggleCardInput(card: any, num: number) {
+    for (const input of card.querySelectorAll('button, input')) {
+      input.tabIndex = num;
+    }
+  }
+
+  private toggleCardListInput() {
+    const cardObjs = this.slides.nativeElement.querySelectorAll('li');
+    const numCards = cardObjs.length;
+    for (let i = 0; i < numCards; i++) {
+      if ((i < this.index) || (i >= (this.index + this.cards))) { // If not visible
+        this.toggleCardInput(cardObjs[i], -1); // Disable tabs
+      } else { // Otherwise
+        this.toggleCardInput(cardObjs[i], 0); // Enable tabs
+      }
     }
   }
 

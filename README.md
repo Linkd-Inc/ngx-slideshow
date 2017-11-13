@@ -59,13 +59,19 @@ export class OtherModule {
 }
 ```
 
-## Usage
+## Inputs
 
 `cards`: The amount of cards you can visibly see at one time. This should be a number
 
 `padding`: The amount of padding between each cards. This should be a string of CSS valid units
 
 `cardSize`: The size of each cards in width. This should be a string of CSS valid units, including percentage
+
+`disableTabbing`: If true, set tabIndex to `-1` for any pages not in view. Default false.
+
+`resizeViewport`: If true, allow the component to resize the viewport based on card width. Disable if using flexbox or similar to size viewport. Default true.
+
+## Methods
 
 `left()`: This method moves the list of cards to the left 1 time
 
