@@ -3,6 +3,7 @@
 # compiled output
 /dist
 /tmp
+/out-tsc
 
 # dependencies
 /node_modules
@@ -32,7 +33,6 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-/config/gulp-tasks/README.md
 
 # e2e
 /e2e/*.js
@@ -41,34 +41,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-### Angular ###
-## Angular ##
-# compiled output
-/demo/dist
-/demo/tmp
-/demo/app/**/*.js
-/demo/app/**/*.js.map
-
-# dependencies
-/demo/node_modules
-/demo/bower_components
-
-# IDEs and editors
-/demo/.idea
-
-# misc
-/demo/.sass-cache
-/demo/connect.lock
-/demo/coverage/*
-/demo/libpeerconnection.log
-npm-debug.log
-testem.log
-/demo/typings
-
-# e2e
-/demo/e2e/*.js
-/demo/e2e/*.map
-
-#System Files
-.DS_Store

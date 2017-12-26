@@ -1,0 +1,136 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Getting Started</h1>
+  </div>
+</div>
+
+<section class="getting-started">
+  <div class="container">
+<!-- put your content here-->
+    <div class="slideshow">
+      <div class="arrow left">
+        <button mat-icon-button (click)="slideshow.left()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+      </div>
+      <div class="arrow right">
+        <button mat-icon-button (click)="slideshow.right()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+      <div class="circles row no-wrap">
+        <div class="circleDot" *ngFor="let number of [0,1,2,3,4]" [class.active]="slideshow.index === number"
+             (click)="slideshow.goTo(number)"></div>
+      </div>
+      <ngx-slideshow #carousel [cards]="1" [padding]="'0'" [disableTabbing]="true" [cardSize]="'100%'"
+                     [resizeViewport]="false">
+        <li>
+          <div class="card p-100">
+            <div class="text">
+              <div class="tophalf row no-wrap middle-xs m-b-10">
+                <div class="tag p-5"><p>#Material</p></div>
+                <div class="author row no-wrap m-l-10">
+                  <mat-icon>person</mat-icon>
+                  Corbin Crutchley
+                </div>
+              </div>
+              <div class="bottomhalf">
+                <h3>This is a title of a thing</h3>
+                <p>Aenean a semper elit, eget porta mauris. Praesent ex metus, porta at rhoncus ut, finibus ac felis. Duis
+                  viverra erat quis nisl tincidunt ultrices...</p>
+              </div>
+            </div>
+            <div class="scrim"></div>
+            <div class="image"></div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card p-100">
+            <div class="text">
+              <div class="tophalf row no-wrap middle-xs m-b-10">
+                <div class="tag p-5"><p>#Material</p></div>
+                <div class="author row no-wrap m-l-10">
+                  <mat-icon>person</mat-icon>
+                  Corbin Crutchley
+                </div>
+              </div>
+              <div class="bottomhalf">
+                <h3>This is a title of a thing</h3>
+                <p>Aenean a semper elit, eget porta mauris. Praesent ex metus, porta at rhoncus ut, finibus ac felis. Duis
+                  viverra erat quis nisl tincidunt ultrices...</p>
+              </div>
+            </div>
+            <div class="scrim"></div>
+            <div class="image"></div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card p-100">
+            <div class="text">
+              <div class="tophalf row no-wrap middle-xs m-b-10">
+                <div class="tag p-5"><p>#Material</p></div>
+                <div class="author row no-wrap m-l-10">
+                  <mat-icon>person</mat-icon>
+                  Corbin Crutchley
+                </div>
+              </div>
+              <div class="bottomhalf">
+                <h3>This is a title of a thing</h3>
+                <p>Aenean a semper elit, eget porta mauris. Praesent ex metus, porta at rhoncus ut, finibus ac felis. Duis
+                  viverra erat quis nisl tincidunt ultrices...</p>
+              </div>
+            </div>
+            <div class="scrim"></div>
+            <div class="image"></div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card p-100">
+            <div class="text">
+              <div class="tophalf row no-wrap middle-xs m-b-10">
+                <div class="tag p-5"><p>#Material</p></div>
+                <div class="author row no-wrap m-l-10">
+                  <mat-icon>person</mat-icon>
+                  Wireflare
+                </div>
+              </div>
+              <div class="bottomhalf">
+                <h3>This is a title of a thing</h3>
+                <p>Aenean a semper elit, eget porta mauris. Praesent ex metus, porta at rhoncus ut, finibus ac felis. Duis
+                  viverra erat quis nisl tincidunt ultrices...</p>
+              </div>
+            </div>
+            <div class="scrim"></div>
+            <div class="image"></div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card p-100">
+            <div class="text">
+              <div class="tophalf row no-wrap middle-xs m-b-10">
+                <div class="tag p-5"><p>#Material</p></div>
+                <div class="author row no-wrap m-l-10">
+                  <mat-icon>person</mat-icon>
+                  Wireflare
+                </div>
+              </div>
+              <div class="bottomhalf">
+                <h3>This is a title of a thing</h3>
+                <p>Aenean a semper elit, eget porta mauris. Praesent ex metus, porta at rhoncus ut, finibus ac felis. Duis
+                  viverra erat quis nisl tincidunt ultrices...</p>
+              </div>
+            </div>
+            <div class="scrim"></div>
+            <div class="image"></div>
+          </div>
+        </li>
+
+      </ngx-slideshow>
+
+    </div>
+  </div>
+</section>

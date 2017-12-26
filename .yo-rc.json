@@ -1,25 +1,29 @@
 {
   "generator-ngx-library": {
-    "version": "4.1.1",
+    "version": "5.4.0",
     "authorName": "Wireflare",
     "authorEmail": "marketing@wireflare.com",
-    "githubUsername": "wireflare",
+    "githubUsername": "WireFlare",
+    "githubRepoName": "ngx-slideshow",
     "projectName": "ngx-slideshow",
-    "projectVersion": "0.0.1",
-    "projectDescription": "An Angular 4+ slideshow/carousel component",
+    "projectVersion": "0.0.9",
+    "projectDescription": "An Agular 4+ slideshow component",
     "projectKeywords": [
       "ng",
       "angular",
       "angular4",
+      "angular5",
       "slideshow",
       "carousel"
     ],
-    "ngPrefix": "ngx-slideshow",
     "ngVersion": "4.0.0",
     "ngModules": [
       "core",
       "common"
     ],
+    "otherDependencies": [],
+    "dependenciesRange": "^",
+    "ngPrefix": "ngx-slideshow",
     "useGreenkeeper": false,
     "useCompodoc": true,
     "enforceNgGitCommitMsg": true,

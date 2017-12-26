@@ -118,7 +118,7 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     return str.substr(str.length - searchStr.length, searchStr.length) === searchStr;
   };
 
-  private onResize(): void {
+  onResize(): void {
     const cardObjs = this.slides.nativeElement.getElementsByTagName('li'); // Get list of objects
     const numCards = cardObjs.length; // Find out how many cards there are
     this.max = (numCards - this.cards) + 1; // Calculate max: # cards you see on screen - full # of cards
