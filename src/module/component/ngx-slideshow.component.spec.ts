@@ -102,4 +102,6 @@ describe('NgxSlideshowComponent', function () {
 
   // TODO: Add tests for resizeViewport and all unit types
   // TODO: Add tests for disableTabbing
+  // TODO: Add tests for `calc(80% - 20px)`
+  // TODO: Add tests for `calc(80% - 20%)`
 });

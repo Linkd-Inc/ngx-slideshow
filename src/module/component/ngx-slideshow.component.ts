@@ -79,6 +79,8 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
 
   private setLeft(): void {
     const newSize = `calc(0px - calc(calc(${this.trueCardSize} + ${this.truePaddingSize}) * ${this.index}))`;
+    console.log(`${this.trueCardSize} + ${this.truePaddingSize}) * ${this.index}`)
+    console.log(this.slides);
     this.renderer.setStyle(this.slides.nativeElement, 'left', newSize);
     if (this.disableTabbing) {
       // This will disallow tabbing to other slides
@@ -114,13 +116,14 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  private endsWith(str: string, searchStr: string) {
-    return str.substr(str.length - searchStr.length, searchStr.length) === searchStr;
+  private convertPercentageToNumber(percentage: string) {
+    const num = Number(percentage.slice(0, -1)) / 100;
+    return `${this.viewSize * num}px`;
   };
 
   // Host listener for window resize
   @HostListener('window:resize', [])
-  onResize(): void {
+  private onResize(): void {
     const cardObjs = this.slides.nativeElement.getElementsByTagName('li'); // Get list of objects
     const numCards = cardObjs.length; // Find out how many cards there are
     this.max = (numCards - this.cards) + 1; // Calculate max: # cards you see on screen - full # of cards
@@ -133,11 +136,9 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     if (this.cardSize.includes('%') && this.resizeViewport) {
       this.renderer.setStyle(this.viewport.nativeElement, 'width', this.cardSize);
       this.trueCardSize = `${this.viewport.nativeElement.offsetWidth}px`;
-    } else if (this.endsWith(this.cardSize, '%') && !this.resizeViewport) {
-      // TODO: Support entries such as calc(20% - 5px) using regex instead of cruddy endsWith
+    } else if (this.cardSize.includes('%') && !this.resizeViewport) {
       // TODO: Add tests for all unit types such as this
-      const cardPercentage = (Number(this.cardSize.slice(0, -1)) / 100); // Turn into decimal to do math
-      this.trueCardSize = `${this.viewSize * cardPercentage}px`
+      this.trueCardSize = this.cardSize.replace(/([0-9]+%)/g, this.convertPercentageToNumber); // Turn into decimal to do math
     } else {
       this.trueCardSize = this.cardSize;
     }
@@ -146,11 +147,10 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     if (this.padding.includes('%') && this.resizeViewport) {
       this.renderer.setStyle(this.viewport.nativeElement, 'width', this.padding);
       this.truePaddingSize = `${this.viewport.nativeElement.offsetWidth}px`;
-    } else if (this.endsWith(this.padding, '%') && !this.resizeViewport) {
-      const cardPercentage = (Number(this.cardSize.slice(0, -1)) / 100); // Turn into decimal to do math
-      this.truePaddingSize = `${this.viewSize * cardPercentage}px`
+    } else if (this.padding.includes('%') && !this.resizeViewport) {
+      this.truePaddingSize = this.padding.replace(/([0-9]+%)/g, this.convertPercentageToNumber); // Turn into decimal to do math
     } else {
-      this.truePaddingSize = this.padding;
+      this.truePaddingSize = this.padding === '0' ? '0px' : this.padding;
     }
 
     // Set size of cards + padding for calculating slides div and viewport div
