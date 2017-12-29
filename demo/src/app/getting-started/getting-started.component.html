@@ -22,7 +22,7 @@
         <div class="circleDot" *ngFor="let number of [0,1,2,3,4]" [class.active]="slideshow.index === number"
              (click)="slideshow.goTo(number)"></div>
       </div>
-      <ngx-slideshow #carousel [cards]="1" [padding]="'0'" [disableTabbing]="true" [cardSize]="'100%'"
+      <ngx-slideshow #slideshow [cards]="1" [padding]="'0'" [disableTabbing]="true" [cardSize]="'100%'"
                      [resizeViewport]="false">
         <li>
           <div class="card p-100">

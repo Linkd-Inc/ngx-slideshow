@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild, Renderer2, Input, AfterViewInit, OnChanges} from '@angular/core';
+import {Component, ElementRef, ViewChild, Renderer2, Input, AfterViewInit, OnChanges, HostListener} from '@angular/core';
 
 @Component({
   selector: 'ngx-slideshow',
@@ -118,6 +118,8 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     return str.substr(str.length - searchStr.length, searchStr.length) === searchStr;
   };
 
+  // Host listener for window resize
+  @HostListener('window:resize', [])
   onResize(): void {
     const cardObjs = this.slides.nativeElement.getElementsByTagName('li'); // Get list of objects
     const numCards = cardObjs.length; // Find out how many cards there are
