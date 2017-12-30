@@ -1,3 +1,13 @@
+<a name="0.0.10"></a>
+## [0.0.10](https://github.com/wireflare/ngx-slideshow/compare/v0.0.9...v0.0.10) (2017-12-30)
+
+
+### Bug Fixes
+
+* **inputs:** fix bugs regarding AOT and inputs ([c0df783](https://github.com/wireflare/ngx-slideshow/commit/c0df783)), closes [#8](https://github.com/wireflare/ngx-slideshow/issues/8) [#10](https://github.com/wireflare/ngx-slideshow/issues/10)
+
+
+
 <a name="0.0.9"></a>
 ## [0.0.9](https://github.com/wireflare/ngx-slideshow/compare/v0.0.8...v0.0.9) (2017-11-13)
 
@@ -24,7 +34,7 @@
 
 ### Bug Fixes
 
-* **units:** enable percentage based units to be passed in ([15fb53f](https://github.com/wireflare/ngx-slideshow/commit/15fb53f))
+* **units:** enable percentage based units to be passed in ([15fb53f](https://github.com/wireflare/ngx-slideshow/commit/15fb53f)), closes [#8](https://github.com/wireflare/ngx-slideshow/issues/8)
 
 
 

@@ -1,7 +1,7 @@
 {
   "name": "ngx-slideshow",
   "description": "An Angular 4+ slideshow/carousel component",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "filename": "./src/ngx-slideshow.js",
   "homepage": "http://github.com/wireflare/ngx-slideshow",
   "author": {
@@ -30,7 +30,7 @@
     "start": "gulp build",
     "test": " gulp test",
     "demo": " gulp build:demo",
-    "check-travis": " travis-status --repo=wireflare/ngx-slideshow --branch=master --fail-pending || echo 'Not yet passing'"
+    "check-travis": " travis-status --repo=WireFlare/ngx-slideshow --branch=master --fail-pending || echo 'Not yet passing'"
   },
   "dependencies": {
     "@angular/core": "4.0.0 - 5",
