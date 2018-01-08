@@ -1,3 +1,14 @@
+<a name="0.0.11"></a>
+## [0.0.11](https://github.com/wireflare/ngx-slideshow/compare/v0.0.10...v0.0.11) (2018-01-08)
+
+
+### Bug Fixes
+
+* **resize:** fix errors introduced in 0.0.10 ([9b5264c](https://github.com/wireflare/ngx-slideshow/commit/9b5264c))
+* **tests:** fix tests from running ([e27d63b](https://github.com/wireflare/ngx-slideshow/commit/e27d63b)), closes [#12](https://github.com/wireflare/ngx-slideshow/issues/12)
+
+
+
 <a name="0.0.10"></a>
 ## [0.0.10](https://github.com/wireflare/ngx-slideshow/compare/v0.0.9...v0.0.10) (2017-12-30)
 
