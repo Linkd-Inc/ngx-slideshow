@@ -5,7 +5,7 @@
   "description": "Demo app for ngx-slideshow",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --preserve-symlinks",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
