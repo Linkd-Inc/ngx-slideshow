@@ -1,10 +1,10 @@
 # ngx-slideshow - An Angular 4+ slideshow/carousel component
 
 [![npm version](https://badge.fury.io/js/ngx-slideshow.svg)](https://badge.fury.io/js/ngx-slideshow)
-[![Build Status](https://travis-ci.org/WireFlare/ngx-slideshow.svg?branch=master)](https://travis-ci.org/WireFlare/ngx-slideshow)
-[![Coverage Status](https://coveralls.io/repos/github/WireFlare/ngx-slideshow/badge.svg?branch=master)](https://coveralls.io/github/WireFlare/ngx-slideshow?branch=master)
-[![dependency Status](https://david-dm.org/wireflare/ngx-slideshow/status.svg)](https://david-dm.org/wireflare/ngx-slideshow)
-[![devDependency Status](https://david-dm.org/wireflare/ngx-slideshow/dev-status.svg?branch=master)](https://david-dm.org/wireflare/ngx-slideshow#info=devDependencies)
+[![Build Status](https://travis-ci.org/Linkd-Inc/ngx-slideshow.svg?branch=master)](https://travis-ci.org/Linkd-Inc/ngx-slideshow)
+[![Coverage Status](https://coveralls.io/repos/github/Linkd-Inc/ngx-slideshow/badge.svg?branch=master)](https://coveralls.io/github/Linkd-Inc/ngx-slideshow?branch=master)
+[![dependency Status](https://david-dm.org/linkd-inc/ngx-slideshow/status.svg)](https://david-dm.org/linkd-inc/ngx-slideshow)
+[![devDependency Status](https://david-dm.org/linkd-inc/ngx-slideshow/dev-status.svg?branch=master)](https://david-dm.org/linkd-inc/ngx-slideshow#info=devDependencies)
 
 ## Dependencies
 * [Angular](https://angular.io) (*requires* Angular 4 or higher, tested with 4.0.0)
