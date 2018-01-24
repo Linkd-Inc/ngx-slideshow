@@ -1,5 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {Component, DebugElement, ViewChild} from '@angular/core';
+import {Component, DebugElement, Renderer2, ViewChild} from '@angular/core';
 
 import {NgxSlideshowComponent} from './ngx-slideshow.component';
 
@@ -117,50 +117,96 @@ describe('NgxSlideshowComponent', function () {
     fixture.detectChanges();
     expect(() => comp.slideshow.goTo(1)).toThrow();
   });
-  
+
   // // The following tests SHOULD pass but do not for unknown reasons
-  // it('should convert unitless to unit based number', () => {
-  //   comp.slideshow.padding = '0';
-  //   fixture.detectChanges();
-  //   const style = el.querySelector('li').style;
-  //   expect(style.margin).toBe('0px calc(0px)');
-  // });
-  //
-  // it('should be able to handle a unit decimal', () => {
-  //   comp.slideshow.padding = '0.5px';
-  //   fixture.detectChanges();
-  //   const style = el.querySelector('li').style;
-  //   expect(style.margin).toBe('0px calc(0.25px)');
-  // });
-  //
-  //
-  // it('should convert unitless decimal to unit based number', () => {
-  //   comp.slideshow.padding = '0.5';
-  //   fixture.detectChanges();
-  //   const style = el.querySelector('li').style;
-  //   expect(style.margin).toBe('0px calc(0.25px)');
-  // });
+  it('should convert unitless to unit based number', () => {
+    comp.slideshow.padding = '0';
+    comp.slideshow.ngOnChanges();
+    expect(el.querySelector('li').style.margin).toBe('0px calc(0px)');
+  });
 
-  // TODO: Add tests for percentage inputs
-  // TODO: Add tests for resizeViewport and all unit types
-  // TODO: Add tests for disableTabbing
-  // TODO: Add tests for `calc(80% - 20px)`
-  // TODO: Add tests for `calc(80% - 20%)`
-  // TODO: Add tests for percentage decimal ('25.5%')
+  it('should be able to handle a unit decimal', () => {
+    comp.slideshow.padding = '0.5px';
+    comp.slideshow.ngOnChanges();
+    expect(el.querySelector('li').style.margin).toBe('0px calc(0.25px)');
+  });
+
+  it('should convert unitless decimal to unit based number', () => {
+    comp.slideshow.padding = '0.5';
+    comp.slideshow.ngOnChanges();
+    expect(el.querySelector('li').style.margin).toBe('0px calc(0.25px)');
+  });
+
+
+  it('should disable tabs when not in view', () => {
+    comp.slideshow.cards = 1;
+    comp.slideshow.disableTabbing = true;
+    comp.slideshow.ngOnChanges();
+    expect(el.querySelector('button').tabIndex).toBe(-1);
+  });
+
+  it('should not disable tabs when in view', () => {
+    comp.slideshow.disableTabbing = true;
+    comp.slideshow.ngOnChanges();
+    expect(el.querySelector('button').tabIndex).toBe(0);
+  });
+
+  it('should respect resizeViewport', () => {
+    comp.slideshow.resizeViewport = false;
+    comp.slideshow.ngOnChanges();
+    expect((<HTMLElement>el.querySelector('.viewport')).style.width).toBe('');
+  });
+
+  it('should handle percentage for size', () => {
+    comp.slideshow.resizeViewport = false;
+    comp.slideshow.cards = 1;
+    comp.slideshow.cardSize = '100%';
+    comp.slideshow.padding = '0px';
+    comp.slideshow.ngOnChanges();
+    expect(el.querySelector('li').style.width).toBe('200px');
+  });
+
+  it('should handle calc percentage with pixels for size', () => {
+    comp.slideshow.resizeViewport = false;
+    comp.slideshow.cards = 1;
+    comp.slideshow.cardSize = 'calc(100% - 10px)';
+    comp.slideshow.padding = '10px';
+    comp.slideshow.ngOnChanges();
+    expect(el.querySelector('li').style.width).toBe('calc(190px)');
+  });
+
+  it('should handle calc percentage with percentage for size', () => {
+    comp.slideshow.resizeViewport = false;
+    comp.slideshow.cards = 1;
+    comp.slideshow.cardSize = 'calc(100% - 20%)';
+    comp.slideshow.padding = '20%';
+    comp.slideshow.ngOnChanges();
+    expect(el.querySelector('li').style.width).toBe('calc(160px)'); // 200 * 20%
+  });
+
+  it('should handle calc percentage with percentage for size', () => {
+    comp.slideshow.resizeViewport = false;
+    comp.slideshow.cards = 1;
+    comp.slideshow.cardSize = '74.5%';
+    comp.slideshow.padding = '25.5%';
+    comp.slideshow.ngOnChanges();
+    expect(el.querySelector('li').style.margin).toBe('0px calc(25.5px)'); // 200 * 25.5%= 51. 51/2
+  });
 });
-
 
 @Component({
   selector: 'test-cmp',
   template: `
-    <ngx-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'">
-      <li><img src="http://via.placeholder.com/350x150"></li>
-      <li><img src="http://via.placeholder.com/350x150"></li>
-      <li><button>Click me</button></li>
-      <li><img src="http://via.placeholder.com/350x150"></li>
-      <li><img src="http://via.placeholder.com/350x150"></li>
-      <li><img src="http://via.placeholder.com/350x150"></li>
-    </ngx-slideshow>
+    <div style="width: 200px">
+      <ngx-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'" style="display: block;">
+        <li><img src="http://via.placeholder.com/350x150"></li>
+        <li><img src="http://via.placeholder.com/350x150"></li>
+        <li><button>Click me</button></li>
+        <li><img src="http://via.placeholder.com/350x150"></li>
+        <li><img src="http://via.placeholder.com/350x150"></li>
+        <li><img src="http://via.placeholder.com/350x150"></li>
+      </ngx-slideshow>
+    </div>
   `
 })
 class TestComponent {

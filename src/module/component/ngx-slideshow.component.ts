@@ -28,8 +28,8 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   private findPercentages = new RegExp(/([0-9]+(?:[.][0-9]+)?%)/g);
 
   // Get elements to use later
-  @ViewChild('viewport') viewport: ElementRef;
-  @ViewChild('slides') slides: ElementRef;
+  @ViewChild('viewport') private viewport: ElementRef;
+  @ViewChild('slides')  slides: ElementRef;
 
   // To use with HammerJS
   SWIPE_ACTION = {LEFT: 'swipeleft', RIGHT: 'swiperight'};
@@ -136,6 +136,9 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
     this.max = (numCards - this.cards) + 1; // Calculate max: # cards you see on screen - full # of cards
 
     if (!this.resizeViewport) {
+      this.renderer.removeStyle(this.viewport.nativeElement, 'width');
+      // This is being done because [class.full-width] was not working in tests
+      this.renderer.addClass(this.viewport.nativeElement, 'full-width')
       this.viewSize = this.viewport.nativeElement.offsetWidth;
     }
 
