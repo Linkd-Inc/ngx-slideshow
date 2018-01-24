@@ -104,5 +104,5 @@ export class OtherModule {
 
 ## License
 
-Copyright (c) 2017 Wireflare. Licensed under the MIT License (MIT)
+Copyright (c) 2017 Linkd. Licensed under the MIT License (MIT)
 
