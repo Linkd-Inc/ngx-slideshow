@@ -117,26 +117,35 @@ describe('NgxSlideshowComponent', function () {
     fixture.detectChanges();
     expect(() => comp.slideshow.goTo(1)).toThrow();
   });
-
-
-  // it('should change padding size to 0px', () => {
-  //   comp.slideshow.padding = '0px';
+  
+  // // The following tests SHOULD pass but do not for unknown reasons
+  // it('should convert unitless to unit based number', () => {
+  //   comp.slideshow.padding = '0';
   //   fixture.detectChanges();
-  // // This does not give me what I want to see
   //   const style = el.querySelector('li').style;
-  // // But this does???
-  //   console.log(el.querySelector('li').style);
   //   expect(style.margin).toBe('0px calc(0px)');
   // });
+  //
+  // it('should be able to handle a unit decimal', () => {
+  //   comp.slideshow.padding = '0.5px';
+  //   fixture.detectChanges();
+  //   const style = el.querySelector('li').style;
+  //   expect(style.margin).toBe('0px calc(0.25px)');
+  // });
+  //
+  //
+  // it('should convert unitless decimal to unit based number', () => {
+  //   comp.slideshow.padding = '0.5';
+  //   fixture.detectChanges();
+  //   const style = el.querySelector('li').style;
+  //   expect(style.margin).toBe('0px calc(0.25px)');
+  // });
 
-
+  // TODO: Add tests for percentage inputs
   // TODO: Add tests for resizeViewport and all unit types
   // TODO: Add tests for disableTabbing
   // TODO: Add tests for `calc(80% - 20px)`
   // TODO: Add tests for `calc(80% - 20%)`
-  // TODO: Add tests for unitless ('80')
-  // TODO: Add tests for unitless decimal ('90.5')
-  // TODO: Add tests for united decimal ('90.5px')
   // TODO: Add tests for percentage decimal ('25.5%')
 });
 
@@ -147,7 +156,7 @@ describe('NgxSlideshowComponent', function () {
     <ngx-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'">
       <li><img src="http://via.placeholder.com/350x150"></li>
       <li><img src="http://via.placeholder.com/350x150"></li>
-      <li><img src="http://via.placeholder.com/350x150"></li>
+      <li><button>Click me</button></li>
       <li><img src="http://via.placeholder.com/350x150"></li>
       <li><img src="http://via.placeholder.com/350x150"></li>
       <li><img src="http://via.placeholder.com/350x150"></li>
