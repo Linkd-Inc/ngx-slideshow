@@ -24,8 +24,8 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   private truePaddingSize: string;
 
   // These will be used in regex searches later
-  private findNumbers = new RegExp(/(\b[0-9]+\b)/g);
-  private findPercentages = new RegExp(/([0-9]+%)/g);
+  private findNumbers = new RegExp(/([0-9]+(?:[.][0-9]+)?)(?![\.\w])/g);
+  private findPercentages = new RegExp(/([0-9]+(?:[.][0-9]+)?%)/g);
 
   // Get elements to use later
   @ViewChild('viewport') viewport: ElementRef;
