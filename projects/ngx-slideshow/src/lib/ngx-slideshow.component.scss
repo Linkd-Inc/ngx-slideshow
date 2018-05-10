@@ -1,0 +1,35 @@
+.ngx-slideshow-component {
+  &.viewport {
+    display: inline-block;
+    overflow: hidden;
+
+    &.full-width {
+      width: 100%;
+    }
+    .slides {
+      transition: all 1s ease;
+      position: relative;
+      white-space: nowrap;
+      padding: 0;
+      margin: 0;
+      width: fit-content;
+
+      /* row */
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 1 auto;
+      /* flex-wrap: wrap; */
+      flex-direction: row;
+
+      /* no-wrap */
+      flex-wrap: nowrap;
+    }
+
+    ::ng-deep .slides > li {
+      flex-shrink: 0;
+      position: relative;
+      float: left;
+      list-style: none;
+    }
+  }
+}
