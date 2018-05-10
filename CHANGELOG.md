@@ -1,3 +1,18 @@
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/Linkd-Inc/ngx-slideshow/compare/v0.1.0...v0.1.1) (2018-05-10)
+
+
+### Bug Fixes
+
+* **ie:** Added fixes for IE in order to properly display ([5f1b23b](https://github.com/Linkd-Inc/ngx-slideshow/commit/5f1b23b))
+
+
+### BREAKING CHANGES
+
+* **ie:** This release upgrades to Angular 6. Angular 4-5 support has been dropped
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/Linkd-Inc/ngx-slideshow/compare/v0.0.11...v0.1.0) (2018-01-24)
 
