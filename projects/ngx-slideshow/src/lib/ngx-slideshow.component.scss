@@ -1,35 +1,11 @@
 .ngx-slideshow-component {
-  &.viewport {
-    display: inline-block;
+  height: 100%;
+  .ngxCardItem {
+    float: left;
+    position: relative;
     overflow: hidden;
-
-    &.full-width {
-      width: 100%;
-    }
-    .slides {
-      transition: all 1s ease;
-      position: relative;
-      white-space: nowrap;
-      padding: 0;
-      margin: 0;
-      width: fit-content;
-
-      /* row */
-      box-sizing: border-box;
-      display: flex;
-      flex: 0 1 auto;
-      /* flex-wrap: wrap; */
-      flex-direction: row;
-
-      /* no-wrap */
-      flex-wrap: nowrap;
-    }
-
-    ::ng-deep .slides > li {
-      flex-shrink: 0;
-      position: relative;
-      float: left;
-      list-style: none;
+    & > div, & {
+      height: 100%;
     }
   }
 }
