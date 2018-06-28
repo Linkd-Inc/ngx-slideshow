@@ -1,3 +1,20 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/Linkd-Inc/ngx-slideshow/compare/0.1.1...0.2.0) (2018-06-28)
+
+
+### Code Refactoring
+
+* **all:** Massive refactor that allows much more performant ([e450254](https://github.com/Linkd-Inc/ngx-slideshow/commit/e450254))
+
+
+### BREAKING CHANGES
+
+* **all:** This release changes the API you use in order
+to utilize `ngx-slideshow`. Please see the README for instructions
+on how to migrate
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/Linkd-Inc/ngx-slideshow/compare/v0.1.0...v0.1.1) (2018-05-10)
 
