@@ -2,9 +2,9 @@
   height: 100%;
   .ngxCardItem {
     float: left;
-    position: relative;
     overflow: hidden;
-    & > div, & {
+    &, & > div {
+      position: relative;
       height: 100%;
     }
   }

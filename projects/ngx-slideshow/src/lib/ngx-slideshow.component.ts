@@ -15,6 +15,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import {DomSanitizer, SafeStyle} from '@angular/platform-browser';
 
 @Component({
   selector: 'ngx-slideshow',
@@ -42,15 +43,13 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
 
   // Set initial index
   index = 0;
-  min = -1;
 
   // These will be generated with ngAfterViewInit, as they rely on the number of cards loaded into the carousel
-  trueViewportSize: string;
-  trueCardSize: string;
-  truePaddingSize: string;
-  pixelCardSize: string;
-
-  setSideStyle: {width?: string} = {};
+  trueViewportSize: SafeStyle;
+  trueCardSize: SafeStyle;
+  truePaddingSize: SafeStyle;
+  pixelCardSize: SafeStyle;
+  cardWidthSet = false;
 
   // These will be used in regex searches later
   private findNumbers = new RegExp(/([0-9]+(?:[.][0-9]+)?)(?![.%\w])/g);
@@ -58,7 +57,7 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
   // To use with HammerJS
   SWIPE_ACTION = {LEFT: 'swipeleft', RIGHT: 'swiperight'};
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
   }
 
   ngAfterViewInit(): void {
@@ -113,31 +112,28 @@ export class NgxSlideshowComponent implements AfterViewInit, OnChanges {
       throw Error('You cannot have both `cardSize` and `card` left unset');
     }
 
+    let cardSize;
     if (this.cardSize.includes('%') && this.resizeViewport) {
       throw Error('You cannot use percentages with `resizeViewport`');
-    } else if (this.cardSize.includes('%') && !this.resizeViewport) {
-      // TODO: Add tests for all unit types such as this
-      this.trueCardSize = this.cardSize
-        .replace(this.findNumbers, this.convertNumberToUnit.bind(this));
     } else {
-      this.trueCardSize = this.cardSize
+      cardSize = this.cardSize
         .replace(this.findNumbers, this.convertNumberToUnit.bind(this));
+      this.trueCardSize = this.sanitizer.bypassSecurityTrustStyle(cardSize);
     }
 
+    let paddingSize;
     if (this.padding.includes('%') && this.resizeViewport) {
       throw Error('You cannot use percentages with `resizeViewport`');
-    } else if (this.padding.includes('%') && !this.resizeViewport) {
-      this.truePaddingSize = this.setMarginSize(this.padding
-        .replace(this.findNumbers, this.convertNumberToUnit.bind(this)));
     } else {
-      this.truePaddingSize = this.setMarginSize(this.padding
-        .replace(this.findNumbers, this.convertNumberToUnit.bind(this)));
+      paddingSize = this.padding
+        .replace(this.findNumbers, this.convertNumberToUnit.bind(this));
+      this.truePaddingSize = this.sanitizer.bypassSecurityTrustStyle(this.setMarginSize(paddingSize));
     }
 
-    const fullCardSize = `calc(${this.trueCardSize} + ${this.truePaddingSize})`;
-    this.trueViewportSize = `calc(${fullCardSize} * ${this.cards})`;
+    const fullCardSize = `calc(${this.trueCardSize} + ${paddingSize})`;
+    this.trueViewportSize = this.sanitizer.bypassSecurityTrustStyle(`calc(${fullCardSize} * ${this.cards})`);
     if (this.cardItems && this.cardItems.first) {
-      this.pixelCardSize = `${this.cardItems.first.nativeElement.clientWidth}px`;
+      this.pixelCardSize = this.sanitizer.bypassSecurityTrustStyle(`${this.cardItems.first.nativeElement.clientWidth}px`);
     }
   }
 }
