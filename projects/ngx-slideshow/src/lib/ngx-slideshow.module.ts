@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxSlideshowComponent} from './ngx-slideshow.component';
 import {WrapSlicePipe} from './wrap-slice.pipe';
 import {NgxSlideshowCardDirective} from './ngx-slideshow-card.directive';
+import {SlideshowIndexPipe} from './slideshowIndex.pipe';
 
 @NgModule({
   imports: [
@@ -14,12 +15,14 @@ import {NgxSlideshowCardDirective} from './ngx-slideshow-card.directive';
   declarations: [
     NgxSlideshowComponent,
     WrapSlicePipe,
-    NgxSlideshowCardDirective
+    NgxSlideshowCardDirective,
+    SlideshowIndexPipe
   ],
   exports: [
     NgxSlideshowComponent,
     WrapSlicePipe,
-    NgxSlideshowCardDirective
+    NgxSlideshowCardDirective,
+    SlideshowIndexPipe
   ]
 })
 export class NgxSlideshowModule { }

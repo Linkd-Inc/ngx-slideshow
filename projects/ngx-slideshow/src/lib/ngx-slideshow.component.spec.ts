@@ -6,6 +6,23 @@ import {NgxSlideshowComponent} from './ngx-slideshow.component';
 import {WrapSlicePipe} from './wrap-slice.pipe';
 import {NgxSlideshowCardDirective} from './ngx-slideshow-card.directive';
 
+@Component({
+  selector: 'ngx-slideshow-test-cmp',
+  template: `
+    <div style="width: 200px">
+      <ngx-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'" style="display: block;">
+        <ng-template ngx-slideshow-card *ngFor="let _ of [1,2,3,4,5,6,7,8,9]">
+          <img src="http://via.placeholder.com/350x150"/>
+        </ng-template>
+      </ngx-slideshow>
+    </div>
+  `
+})
+class TestComponent {
+  @ViewChild(NgxSlideshowComponent)
+  public slideshow: NgxSlideshowComponent;
+}
+
 describe('NgxSlideshowComponent', function () {
   let comp: TestComponent;
   let fixture: ComponentFixture<TestComponent>;
@@ -150,20 +167,3 @@ describe('NgxSlideshowComponent', function () {
     expect(getComputedStyle(el.querySelector('.ngxCardItem')).margin).toBe('0px 25.5px'); // 200 * 25.5%= 51. 51/2
   });
 });
-
-@Component({
-  selector: 'test-cmp',
-  template: `
-    <div style="width: 200px">
-      <ngx-slideshow #carousel [cards]="3" [cardSize]="'350px'" [padding]="'14px'" style="display: block;">
-        <ng-template ngx-slideshow-card *ngFor="let _ of [1,2,3,4,5,6,7,8,9]">
-          <img src="http://via.placeholder.com/350x150"/>
-        </ng-template>
-      </ngx-slideshow>
-    </div>
-  `
-})
-class TestComponent {
-  @ViewChild(NgxSlideshowComponent)
-  public slideshow: NgxSlideshowComponent;
-}
