@@ -1,11 +1,11 @@
 {
   "name": "ngx-slideshow-demo",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
     "ng": "ng",
     "publish-lib:patch": "run-s publish-lib:pre npm-ver:patch publish-lib:post npm-ver:done:patch publish-slideshow",
     "publish-lib:minor": "run-s lint build test npm-ver:minor publish-lib:post npm-ver:done:minor publish-slideshow",
-    "publish-lib:major": "run-s lint build test npm-ver:major publish-lib:post npm-ver:done:major publish-slideshow",
+    "publish-lib:major": "run-s npm-ver:major lint build test publish-lib:post npm-ver:done:major publish-slideshow",
     "publish-lib:pre": "run-s lint build test",
     "publish-lib:post": "run-s changelog addchanges",
     "publish-slideshow": "npm publish dist/ngx-slideshow",

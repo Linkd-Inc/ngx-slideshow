@@ -1,3 +1,13 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/Linkd-Inc/ngx-slideshow/compare/v0.2.0...v0.3.0) (2018-09-12)
+
+
+### Bug Fixes
+
+* **many:** Many fixes and refactors in order to get tests working/etc ([7a7a6d0](https://github.com/Linkd-Inc/ngx-slideshow/commit/7a7a6d0))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/Linkd-Inc/ngx-slideshow/compare/0.1.1...0.2.0) (2018-06-28)
 
