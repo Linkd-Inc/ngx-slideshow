@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {NgxSlideshowComponent} from './ngx-slideshow.component';
 import {WrapSlicePipe} from './wrap-slice.pipe';
@@ -9,8 +8,7 @@ import {SlideshowIndexPipe} from './slideshowIndex.pipe';
 
 @NgModule({
   imports: [
-    CommonModule,
-    BrowserAnimationsModule
+    CommonModule
   ],
   declarations: [
     NgxSlideshowComponent,
