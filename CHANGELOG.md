@@ -1,3 +1,13 @@
+<a name="0.3.1"></a>
+## [0.3.1](https://github.com/Linkd-Inc/ngx-slideshow/compare/v0.2.0...v0.3.1) (2018-11-01)
+
+
+### Bug Fixes
+
+* **upgrade:** Add Angular 7 support ([b515df9a](https://github.com/Linkd-Inc/ngx-slideshow/commit/b515df9a))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/Linkd-Inc/ngx-slideshow/compare/v0.2.0...v0.3.0) (2018-09-12)
 
