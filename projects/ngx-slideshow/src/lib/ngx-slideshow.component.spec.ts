@@ -157,6 +157,8 @@ describe('NgxSlideshowComponent', function () {
     expect(getComputedStyle(el.querySelector('.ngxCardItem')).width).toBe('160px'); // 200 * 20%
   });
 
+  // TODO: Test to make sure that margin is taken into consideration when card nums and padding are defined
+
   it('should handle calc percentage with percentage for size', () => {
     comp.slideshow.resizeViewport = false;
     comp.slideshow.cards = 1;

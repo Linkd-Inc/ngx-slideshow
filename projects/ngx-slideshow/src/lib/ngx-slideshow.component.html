@@ -1,11 +1,9 @@
 <div #viewport class="ngx-slideshow-component" [style.width]="resizeViewport ? trueViewportSize : undefined">
-  <div #cardItem class="ngxCardItem" [@fadeInOut]
+  <div #cardItem class="ngxCardItem" [@shrinkEnterExit]
+       *ngFor="let card of (cardList | wrapSlice : index : cards : disableWrap)"
        [style.margin]="truePaddingSize"
-       [style.width]="trueCardSize"
-       *ngFor="let card of (cardList | wrapSlice : index : cards)"
-       (@fadeInOut.start)="cardWidthSet = true"
-       (@fadeInOut.done)="cardWidthSet = false">
-      <div [style.width]="cardWidthSet ? pixelCardSize : null">
+       [style.width]="trueCardSize">
+      <div [style.width.px]="pixelCardSize">
         <ng-template [ngTemplateOutlet]="card?.template"></ng-template>
     </div>
   </div>
