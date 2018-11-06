@@ -1,3 +1,12 @@
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/Linkd-Inc/ngx-slideshow/compare/v0.2.0...v0.3.2) (2018-11-06)
+
+
+### Bug Fixes
+
+* **many:** Fix errors with styling and margins, stopped errors from being thrown ([d631a50](https://github.com/Linkd-Inc/ngx-slideshow/commit/d631a50))
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/Linkd-Inc/ngx-slideshow/compare/v0.2.0...v0.3.1) (2018-11-01)
 
