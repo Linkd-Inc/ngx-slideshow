@@ -19,7 +19,7 @@ import {NgxSlideshowCardDirective} from './ngx-slideshow-card.directive';
   `
 })
 class TestComponent {
-  @ViewChild(NgxSlideshowComponent)
+  @ViewChild(NgxSlideshowComponent, /* TODO: add static flag */ {})
   public slideshow: NgxSlideshowComponent;
 }
 

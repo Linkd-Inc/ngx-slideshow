@@ -1,20 +1,18 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import {NgxSlideshowModule} from '../../projects/ngx-slideshow/src/public-api';
 
-import {AppComponent} from './app.component';
-import {NgxSlideshowModule} from 'ngx-slideshow';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserAnimationsModule,
+    BrowserModule,
     NgxSlideshowModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

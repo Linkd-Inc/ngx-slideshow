@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NgxSlideshowComponent} from 'ngx-slideshow';
+import {NgxSlideshowComponent} from '../../projects/ngx-slideshow/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +28,7 @@ import {NgxSlideshowComponent} from 'ngx-slideshow';
 })
 
 export class AppComponent {
-  @ViewChild('slideshow') slideshow: NgxSlideshowComponent;
+  @ViewChild('slideshow', {static: false}) slideshow: NgxSlideshowComponent;
   numList = Array.from(Array(10).keys());
 
   right() {
