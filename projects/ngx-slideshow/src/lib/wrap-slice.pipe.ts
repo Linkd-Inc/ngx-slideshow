@@ -21,7 +21,7 @@ export class WrapSlicePipe implements PipeTransform {
       return arr.slice(start, start + amount);
     }
 
-    // Find proper absolute start if needed (negative start
+    // Find proper absolute start if needed (negative start)
     const trueStart = (start >= value.length ? start : (start % arr.length) + arr.length);
     return [...new Array(amount)].map((_, i) => arr[(trueStart + i) % arr.length]);
   }
