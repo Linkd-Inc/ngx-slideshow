@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {NgxSlideshowComponent} from './ngx-slideshow.component';
 import {WrapSlicePipe} from './wrap-slice.pipe';
 import {NgxSlideshowCardDirective} from './ngx-slideshow-card.directive';
-import {SlideshowIndexPipe} from './slideshowIndex.pipe';
+import {SlideshowIndexPipe} from './slideshow-index.pipe';
 
 @NgModule({
   imports: [
