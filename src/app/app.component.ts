@@ -13,7 +13,8 @@ import {NgxSlideshowComponent} from '../../projects/ngx-slideshow/src/public-api
           <button (click)="right()">></button>
         </div>
         <div class="circles">
-          <div class="circleDot" *ngFor="let number of numList" [class.active]="slideshow.index === number"
+          <div class="circleDot" *ngFor="let number of numList"
+               [class.active]="(slideshow.index | slideshowIndex : numList.length) === number"
                (click)="slideshow.goTo(number)"></div>
         </div>
         <ngx-slideshow #slideshow [cards]="2" [padding]="'10px'" [resizeViewport]="false">

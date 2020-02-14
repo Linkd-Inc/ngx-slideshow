@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "lib",
-      "camelCase"
+      "ngx-slideshow",
+      "kebab-case"
     ],
     "component-selector": [
       true,
       "element",
-      "lib",
+      "ngx-slideshow",
       "kebab-case"
     ]
   }

@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ngx-slideshow-demo": {
@@ -151,7 +151,7 @@
       "projectType": "library",
       "root": "projects/ngx-slideshow",
       "sourceRoot": "projects/ngx-slideshow/src",
-      "prefix": "lib",
+      "prefix": "ngx-slideshow",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

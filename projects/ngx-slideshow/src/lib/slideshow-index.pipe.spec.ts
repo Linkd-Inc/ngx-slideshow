@@ -31,7 +31,6 @@ describe('SlideshowIndexPipe', () => {
     expect(pipe.transform(-1, [1, 2, 3].length)).toEqual(2);
   });
 
-
   it('will return an 3 when overflowed by -3', () => {
     const pipe = new SlideshowIndexPipe();
     expect(pipe.transform(-1, [1, 2, 3].length)).toEqual(2);
