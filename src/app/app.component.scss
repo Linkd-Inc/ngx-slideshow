@@ -1,5 +1,6 @@
 .getting-started {
   min-height: 100vh;
+
   .slideshow {
     .arrow {
       background: white;
@@ -12,13 +13,16 @@
       top: 50%;
       transform: translateY(-50%);
       z-index: 3;
+
       &.left {
         left: 0;
       }
+
       &.right {
         right: 0;
       }
     }
+
     .circles {
       position: absolute;
       z-index: 3;
@@ -42,10 +46,15 @@
       }
     }
   }
+
   .card {
     height: 275px;
     background-image: url(https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg);
     background-position: center;
     background-size: cover;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    line-height: 290px;
   }
 }

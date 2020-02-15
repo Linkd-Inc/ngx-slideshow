@@ -19,6 +19,9 @@ export class SlideshowIndexPipe implements PipeTransform {
       const numberToSubtract = Math.abs(value);
       const absNumToSubtract =
         numberToSubtract % maxSizeOrLength;
+      if ((numberToSubtract % maxSizeOrLength) === 0) {
+        return 0;
+      }
       return maxSizeOrLength - absNumToSubtract;
     }
 

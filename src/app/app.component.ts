@@ -18,8 +18,8 @@ import {NgxSlideshowComponent} from '../../projects/ngx-slideshow/src/public-api
                (click)="slideshow.goTo(number)"></div>
         </div>
         <ngx-slideshow #slideshow [cards]="2" [padding]="'10px'" [resizeViewport]="false">
-          <ng-template ngx-slideshow-card *ngFor="let a of numList">
-            <div class="card"></div>
+          <ng-template ngx-slideshow-card *ngFor="let a of numList; let index = index">
+            <div class="card">{{index}}</div>
           </ng-template>
         </ngx-slideshow>
       </div>

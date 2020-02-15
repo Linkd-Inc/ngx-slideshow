@@ -31,8 +31,13 @@ describe('SlideshowIndexPipe', () => {
     expect(pipe.transform(-1, [1, 2, 3].length)).toEqual(2);
   });
 
-  it('will return an 3 when overflowed by -3', () => {
+  it('will return an 0 when overflowed by -3', () => {
     const pipe = new SlideshowIndexPipe();
-    expect(pipe.transform(-1, [1, 2, 3].length)).toEqual(2);
+    expect(pipe.transform(-3, [1, 2, 3].length)).toEqual(0);
+  });
+
+  it('will return an 0 when overflowed by -6', () => {
+    const pipe = new SlideshowIndexPipe();
+    expect(pipe.transform(-6, [1, 2, 3].length)).toEqual(0);
   });
 });
